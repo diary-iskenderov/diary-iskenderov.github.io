@@ -1,30 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Diary Iskenderov - Официальный сайт</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; }
-        h1 { color: #333; }
-        .footer { margin-top: 50px; font-size: 0.8em; color: #777; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Docs</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Добро пожаловать!</h1>
-    <p>Это официальная страница разработчика diary-iskenderov.</p>
-    
-    <hr>
-    
-    <h2>Документация приложений</h2>
-    <ul>
-        <li><a href="#privacy">Политика конфиденциальности (Privacy Policy)</a></li>
-    </ul>
+  <header class="topbar">
+    <button class="icon-btn burger" id="burger" aria-label="Открыть меню">☰</button>
 
-    <h2 id="privacy">Политика конфиденциальности</h2>
-    <p>Мы не собираем, не храним и не передаем личные данные пользователей. Ваши данные принадлежат только вам.</p>
+    <a class="brand" href="#">
+      <span class="brand-dot"></span>
+      <span>My Docs</span>
+    </a>
 
-    <div class="footer">
-        &copy; 2026 diary-iskenderov. Powered by GitHub Pages.
+    <div class="search">
+      <span class="search-ic">⌕</span>
+      <input id="search" type="search" placeholder="Поиск по странице..." autocomplete="off" />
+      <kbd class="kbd">Ctrl K</kbd>
     </div>
+    <div class="actions">
+        <button class="btn" id="loginBtn">Вход</button>
+
+    <div class="userchip" id="userChip" hidden>
+        <span id="userName"></span>
+        <button class="icon-btn small" id="logoutBtn" title="Выйти">Выход</button>
+    </div>
+
+  <button class="icon-btn" id="themeToggle" aria-label="Тема">🌙</button>
+  <a class="ghost-link" href="#" title="GitHub">GitHub</a>
+</div>
+
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-head">
+        <div class="side-title">Разделы</div>
+        <div class="side-sub">Быстрая навигация</div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link active" href="#python">
+          <span class="nav-ic">🐍</span><span>Python</span>
+        </a>
+        <a class="nav-link" href="#javascript">
+          <span class="nav-ic">✨</span><span>JavaScript</span>
+        </a>
+        <a class="nav-link" href="#html">
+          <span class="nav-ic">🧩</span><span>HTML</span>
+        </a>
+        <a class="nav-link" href="#css">
+          <span class="nav-ic">🎨</span><span>CSS</span>
+        </a>
+      </nav>
+
+      <div class="side-card">
+        <div class="side-card-title">Подсказка</div>
+        <div class="side-card-text">
+          Нажми на раздел слева — и страница прокрутится к нужному месту.
+        </div>
+      </div>
+
+      <div class="side-footer">© 2026 · My Docs</div>
+    </aside>
+
+    <main class="content" id="content">
+      <div class="page-head">
+        <h1>Документация</h1>
+        <p class="muted">Простой сайт для заметок по программированию (как mini-docs).</p>
+      </div>
+
+      <section class="card" id="python">
+        <div class="card-head">
+          <h2>Python</h2>
+          <span class="pill">Basics</span>
+        </div>
+        <p>Короткие заметки по синтаксису, примеры и шпаргалки.</p>
+
+        <h3>Пример</h3>
+        <pre class="code"><code>def hello(name: str) -> None:
+    print(f"Hello, {name}!")
+
+hello("docs")</code></pre>
+
+        <div class="callout">
+          <div class="callout-title">Совет</div>
+          <div class="callout-text">Делай маленькие разделы, чтобы потом легко искать.</div>
+        </div>
+      </section>
+
+      <section class="card" id="javascript">
+        <div class="card-head">
+          <h2>JavaScript</h2>
+          <span class="pill">Notes</span>
+        </div>
+        <p>Микро-примеры и полезные паттерны.</p>
+        <pre class="code"><code>const sum = (a, b) => a + b;
+console.log(sum(2, 3));</code></pre>
+      </section>
+
+      <section class="card" id="html">
+        <div class="card-head">
+          <h2>HTML</h2>
+          <span class="pill">Markup</span>
+        </div>
+        <p>Семантика, формы, базовые шаблоны.</p>
+        <pre class="code"><code>&lt;section class="card"&gt;
+  &lt;h2&gt;Заголовок&lt;/h2&gt;
+  &lt;p&gt;Текст...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </section>
+
+      <section class="card" id="css">
+        <div class="card-head">
+          <h2>CSS</h2>
+          <span class="pill">Layout</span>
+        </div>
+        <p>Flexbox, Grid, типографика и адаптив.</p>
+        <pre class="code"><code>.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}</code></pre>
+      </section>
+
+      <footer class="page-footer">
+        <div class="muted">Сделано для твоей документации. Можно расширять страницами.</div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <div class="modal" id="loginModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div class="modal-title">Вход</div>
+      <button class="icon-btn small" data-close aria-label="Закрыть">✕</button>
+    </div>
+
+    <form class="modal-form" id="loginForm">
+      <label class="field">
+        <span>Имя</span>
+        <input id="loginName" type="text" placeholder="Например: Emilbek" required />
+      </label>
+
+      <label class="field">
+        <span>Пароль</span>
+        <input id="loginPass" type="password" placeholder="••••••••" required />
+      </label>
+
+      <button class="btn primary" type="submit">Войти</button>
+      <div class="modal-note muted">Это демо (только фронт). Реальный вход сделаем через Django.</div>
+    </form>
+  </div>
+</div>
+
+
 </body>
 </html>
